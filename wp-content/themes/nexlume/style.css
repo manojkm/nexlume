@@ -2420,6 +2420,7 @@ a.contact__detail-value:hover {
     align-items: center;
     justify-content: center;
     gap: 2rem;
+    overflow: hidden;
     z-index: 9999;
     list-style: none;
     margin: 0;
@@ -2444,6 +2445,38 @@ a.contact__detail-value:hover {
   }
   .nav__links.open .nav__cta {
     color: var(--text-primary) !important;
+  }
+  /* Leaf decorations in mobile menu background */
+  .nav__links.open::before,
+  .nav__links.open::after {
+    content: '';
+    position: absolute;
+    background-image: url('assets/logos/NexLume Logo Leaf_white.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .nav__links.open::before {
+    width: 360px;
+    height: 360px;
+    bottom: -80px;
+    right: -80px;
+    opacity: 0.05;
+    transform: rotate(20deg);
+  }
+  .nav__links.open::after {
+    width: 220px;
+    height: 220px;
+    top: -50px;
+    left: -50px;
+    opacity: 0.03;
+    transform: rotate(-25deg);
+  }
+  /* Ensure links stay above pseudo-elements */
+  .nav__links.open li {
+    position: relative;
+    z-index: 1;
   }
 
   .hero__actions {
