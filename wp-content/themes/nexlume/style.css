@@ -223,7 +223,9 @@ body::after {
   justify-content: center;
   flex-direction: column;
   gap: 1.25rem;
-  transition: opacity 0.7s ease, visibility 0.7s ease;
+  transition:
+    opacity 0.7s ease,
+    visibility 0.7s ease;
 }
 .preloader.loaded {
   opacity: 0;
@@ -259,7 +261,9 @@ body::after {
   border-radius: 2px;
 }
 @keyframes preloaderFill {
-  to { width: 100%; }
+  to {
+    width: 100%;
+  }
 }
 
 /* ========================================
@@ -275,13 +279,14 @@ body::after {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: top 0.45s cubic-bezier(0.4,0,0.2,1),
-              left 0.45s cubic-bezier(0.4,0,0.2,1),
-              right 0.45s cubic-bezier(0.4,0,0.2,1),
-              padding 0.45s cubic-bezier(0.4,0,0.2,1),
-              border-radius 0.45s cubic-bezier(0.4,0,0.2,1),
-              background 0.45s cubic-bezier(0.4,0,0.2,1),
-              box-shadow 0.45s cubic-bezier(0.4,0,0.2,1);
+  transition:
+    top 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+    left 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+    right 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+    padding 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+    border-radius 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.45s cubic-bezier(0.4, 0, 0.2, 1);
   background: rgba(11, 11, 11, 0.55);
   backdrop-filter: blur(20px) saturate(160%);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
@@ -296,7 +301,7 @@ body::after {
   left: 0;
   right: 0;
   padding: 0.75rem 3rem;
-  background: rgba(11, 11, 11, 0.60);
+  background: rgba(11, 11, 11, 0.6);
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
   border-radius: 0;
@@ -925,7 +930,10 @@ body::after {
   background: var(--orange);
   padding: 0.55rem 1.25rem;
   border-radius: 4px;
-  transition: background 0.3s ease, transform 0.3s ease, gap 0.3s ease;
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease,
+    gap 0.3s ease;
   text-decoration: none;
 }
 .division-card__shop:hover {
@@ -938,12 +946,12 @@ body::after {
   height: 13px;
 }
 .division-card--air .division-card__shop {
-  background: rgba(255,255,255,0.12);
+  background: rgba(255, 255, 255, 0.12);
   color: var(--grey-light);
-  box-shadow: 0 0 0 1px rgba(255,255,255,0.18);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18);
 }
 .division-card--air .division-card__shop:hover {
-  background: rgba(255,255,255,0.22);
+  background: rgba(255, 255, 255, 0.22);
   color: #fff;
 }
 
@@ -983,7 +991,10 @@ body::after {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 .catalog__tab:hover {
   color: var(--text-primary);
@@ -1193,7 +1204,9 @@ body::after {
 /* ---- Clickable catalog page image ---- */
 .catalog__page-img {
   cursor: zoom-in;
-  transition: filter 0.25s ease, opacity 0.25s ease;
+  transition:
+    filter 0.25s ease,
+    opacity 0.25s ease;
   display: block;
   width: 100%;
   height: auto;
@@ -1206,8 +1219,12 @@ body::after {
   animation: catalog-shimmer 0.9s ease-in-out infinite alternate;
 }
 @keyframes catalog-shimmer {
-  from { opacity: 0.25; }
-  to   { opacity: 0.45; }
+  from {
+    opacity: 0.25;
+  }
+  to {
+    opacity: 0.45;
+  }
 }
 
 /* ---- Thumbnail page number label ---- */
@@ -1265,9 +1282,16 @@ body::after {
   animation: shake 0.35s ease;
 }
 @keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25%       { transform: translateX(-4px); }
-  75%       { transform: translateX(4px); }
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
 }
 .catalog__jump-btn {
   width: 30px;
@@ -1380,7 +1404,9 @@ body::after {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.15s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
   white-space: nowrap;
 }
 .pswp__jump-go:hover {
@@ -1596,7 +1622,7 @@ a.contact__detail-value:hover {
   line-height: 1.7;
 }
 .contact__cf7-notice code {
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.08);
   padding: 0.1em 0.4em;
   border-radius: 4px;
   font-size: 0.82rem;
@@ -1651,7 +1677,9 @@ a.contact__detail-value:hover {
   font-family: "Outfit", sans-serif;
   font-size: 0.88rem;
   font-weight: 300;
-  transition: border-color 0.2s, background 0.2s;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
   outline: none;
   appearance: none;
   -webkit-appearance: none;
@@ -1712,7 +1740,10 @@ a.contact__detail-value:hover {
   border: none;
   border-radius: 999px;
   cursor: pointer;
-  transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+  transition:
+    background 0.25s,
+    transform 0.2s,
+    box-shadow 0.25s;
   margin-top: 0.25rem;
 }
 .contact__form-card input.wpcf7-submit:hover {
@@ -1789,17 +1820,7 @@ a.contact__detail-value:hover {
   position: absolute;
   inset: 0;
   /* Uniform cinematic veil — text spans full width now */
-  background:
-    linear-gradient(to right,
-      rgba(11, 11, 11, 0.70) 0%,
-      rgba(11, 11, 11, 0.45) 50%,
-      rgba(11, 11, 11, 0.62) 100%
-    ),
-    linear-gradient(to bottom,
-      rgba(11, 11, 11, 0.25) 0%,
-      transparent 40%,
-      rgba(11, 11, 11, 0.25) 100%
-    );
+  background: linear-gradient(to right, rgba(11, 11, 11, 0.7) 0%, rgba(11, 11, 11, 0.45) 50%, rgba(11, 11, 11, 0.62) 100%), linear-gradient(to bottom, rgba(11, 11, 11, 0.25) 0%, transparent 40%, rgba(11, 11, 11, 0.25) 100%);
   z-index: 1;
 }
 /* ---- Leaf overlays on the figure ---- */
@@ -1846,8 +1867,8 @@ a.contact__detail-value:hover {
   font-weight: 300;
   color: rgba(255, 255, 255, 0.72);
   letter-spacing: -0.03em;
-  line-height: 1.0;
-  width: 50%;
+  line-height: 1;
+  width: 90%;
 }
 .footer__cta-title .highlight {
   color: rgba(254, 130, 53, 0.82);
@@ -1859,7 +1880,9 @@ a.contact__detail-value:hover {
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.45);
   text-decoration: none;
-  transition: color 0.3s ease, letter-spacing 0.3s ease;
+  transition:
+    color 0.3s ease,
+    letter-spacing 0.3s ease;
 }
 .footer__cta-link:hover {
   color: var(--orange);
@@ -1883,10 +1906,10 @@ a.contact__detail-value:hover {
   transition: border-color 0.4s ease;
 }
 .footer__shop-strip::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(254,130,53,0.07) 0%, rgba(254,130,53,0.02) 60%, transparent 100%);
+  background: linear-gradient(90deg, rgba(254, 130, 53, 0.07) 0%, rgba(254, 130, 53, 0.02) 60%, transparent 100%);
   transform: scaleX(0);
   transform-origin: left center;
   transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1895,7 +1918,7 @@ a.contact__detail-value:hover {
   transform: scaleX(1);
 }
 .footer__shop-strip:hover {
-  border-color: rgba(254,130,53,0.25);
+  border-color: rgba(254, 130, 53, 0.25);
 }
 .footer__shop-strip-inner {
   display: flex;
@@ -1921,12 +1944,12 @@ a.contact__detail-value:hover {
   font-size: clamp(1.8rem, 3.8vw, 3.2rem);
   font-weight: 300;
   letter-spacing: -0.025em;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
   transition: color 0.4s ease;
   line-height: 1.1;
 }
 .footer__shop-strip:hover .footer__shop-strip-label {
-  color: rgba(255,255,255,0.92);
+  color: rgba(255, 255, 255, 0.92);
 }
 .footer__shop-strip-arrow {
   position: relative;
@@ -1938,12 +1961,17 @@ a.contact__detail-value:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 0 1px rgba(255,255,255,0.12);
-  color: rgba(255,255,255,0.35);
-  transition: box-shadow 0.4s ease, color 0.4s ease, transform 0.4s cubic-bezier(0.4,0,0.2,1);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.35);
+  transition:
+    box-shadow 0.4s ease,
+    color 0.4s ease,
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer__shop-strip:hover .footer__shop-strip-arrow {
-  box-shadow: 0 0 0 1px var(--orange), 0 0 24px rgba(254,130,53,0.2);
+  box-shadow:
+    0 0 0 1px var(--orange),
+    0 0 24px rgba(254, 130, 53, 0.2);
   color: var(--orange);
   transform: rotate(-45deg);
 }
@@ -2075,13 +2103,17 @@ a.contact__detail-value:hover {
   font-weight: 400;
   color: var(--orange);
   text-decoration: none;
-  transition: color 0.25s ease, gap 0.25s ease;
+  transition:
+    color 0.25s ease,
+    gap 0.25s ease;
 }
 .footer__mini-shop-link svg {
   width: 14px;
   height: 14px;
   opacity: 0.7;
-  transition: transform 0.25s ease, opacity 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
 }
 .footer__mini-shop-link:hover {
   color: var(--orange-light);
@@ -2107,12 +2139,7 @@ a.contact__detail-value:hover {
   transform: translateX(-50%);
   width: 65%;
   height: 280px;
-  background: radial-gradient(
-    ellipse at center bottom,
-    rgba(254, 130, 53, 0.28) 0%,
-    rgba(254, 130, 53, 0.10) 40%,
-    transparent 70%
-  );
+  background: radial-gradient(ellipse at center bottom, rgba(254, 130, 53, 0.28) 0%, rgba(254, 130, 53, 0.1) 40%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -2129,11 +2156,7 @@ a.contact__detail-value:hover {
   position: relative;
   z-index: 1;
   /* Subtle gradient fade on the text itself */
-  background: linear-gradient(
-    to bottom,
-    rgba(240, 240, 240, 0.85) 0%,
-    rgba(240, 240, 240, 0.35) 100%
-  );
+  background: linear-gradient(to bottom, rgba(240, 240, 240, 0.85) 0%, rgba(240, 240, 240, 0.35) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -2188,15 +2211,23 @@ a.contact__detail-value:hover {
   .footer__cta-inner {
     padding: 0 2.5rem;
   }
-  .footer__shop-strip { padding: 2rem 2.5rem; }
-  .footer__info { padding: 4rem 2.5rem 3rem; }
-  .footer__wordmark-wrap { padding: 0 1.5rem; }
-  .footer__bottom { padding: 1.2rem 2.5rem; }
+  .footer__shop-strip {
+    padding: 2rem 2.5rem;
+  }
+  .footer__info {
+    padding: 4rem 2.5rem 3rem;
+  }
+  .footer__wordmark-wrap {
+    padding: 0 1.5rem;
+  }
+  .footer__bottom {
+    padding: 1.2rem 2.5rem;
+  }
 }
 @media (max-width: 768px) {
   .footer__cta-band {
     padding: 4rem 0;
-    background-position: center center;
+    background-position: 70% center;
     min-height: 480px;
   }
   .footer__cta-inner {
@@ -2205,7 +2236,9 @@ a.contact__detail-value:hover {
   .footer__cta-overlay {
     background: rgba(11, 11, 11, 0.75);
   }
-  .footer__cta-leaf { display: none; }
+  .footer__cta-leaf {
+    display: none;
+  }
   .footer__cta-inner {
     align-items: center;
     text-align: center;
@@ -2241,7 +2274,9 @@ a.contact__detail-value:hover {
     align-items: flex-start;
     padding-top: 1.2rem;
   }
-  .footer__wordmark-wrap { padding: 0 1rem; }
+  .footer__wordmark-wrap {
+    padding: 0 1rem;
+  }
   .footer__bottom {
     flex-direction: column;
     gap: 1rem;
@@ -2449,9 +2484,9 @@ a.contact__detail-value:hover {
   /* Leaf decorations in mobile menu background */
   .nav__links.open::before,
   .nav__links.open::after {
-    content: '';
+    content: "";
     position: absolute;
-    background-image: url('assets/logos/NexLume Logo Leaf_white.svg');
+    background-image: url("assets/logos/NexLume Logo Leaf_white.svg");
     background-repeat: no-repeat;
     background-size: contain;
     pointer-events: none;
@@ -2554,7 +2589,9 @@ a.contact__detail-value:hover {
   justify-content: center;
   opacity: 0;
   transform: translateY(14px) scale(0.9);
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
   pointer-events: none;
 }
 #back-to-top.visible {
