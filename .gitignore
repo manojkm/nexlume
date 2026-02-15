@@ -68,6 +68,9 @@ wp-content/plugins/
 wp-content/cache/
 wp-content/upgrade/
 wp-content/backup-db/
+
+# Duplicator / Dup-Lite backup archives (large files, never commit)
+wp-content/backups-dup-lite/
 wp-content/advanced-cache.php
 wp-content/wp-cache-config.php
 wp-content/object-cache.php

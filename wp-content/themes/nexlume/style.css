@@ -351,6 +351,26 @@ body::after {
   width: 100%;
 }
 
+.nav__shop {
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.12em !important;
+  color: var(--orange) !important;
+  background: transparent;
+  padding: 0.55rem 1.4rem;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px var(--orange);
+  transition: all 0.3s var(--transition-smooth);
+}
+.nav__shop:hover {
+  background: var(--orange) !important;
+  color: var(--bg-primary) !important;
+  transform: translateY(-1px);
+}
+.nav__shop::after {
+  display: none !important;
+}
+
 .nav__cta {
   font-size: 0.75rem !important;
   font-weight: 500 !important;
@@ -888,6 +908,43 @@ body::after {
 .division-card__cta svg {
   width: 14px;
   height: 14px;
+}
+
+.division-card__shop {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--bg-primary);
+  background: var(--orange);
+  padding: 0.55rem 1.25rem;
+  border-radius: 4px;
+  transition: background 0.3s ease, transform 0.3s ease, gap 0.3s ease;
+  text-decoration: none;
+}
+.division-card__shop:hover {
+  background: var(--orange-light);
+  transform: translateY(-2px);
+  gap: 0.8rem;
+}
+.division-card__shop svg {
+  width: 13px;
+  height: 13px;
+}
+.division-card--air .division-card__shop {
+  background: rgba(255,255,255,0.12);
+  color: var(--grey-light);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.18);
+}
+.division-card--air .division-card__shop:hover {
+  background: rgba(255,255,255,0.22);
+  color: #fff;
 }
 
 /* ========================================
@@ -1809,6 +1866,89 @@ a.contact__detail-value:hover {
   letter-spacing: 0.3em;
 }
 
+/* ---- Footer shop strip ---- */
+.footer__shop-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.4rem 4rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.4s ease;
+}
+.footer__shop-strip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(254,130,53,0.07) 0%, rgba(254,130,53,0.02) 60%, transparent 100%);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.footer__shop-strip:hover::before {
+  transform: scaleX(1);
+}
+.footer__shop-strip:hover {
+  border-color: rgba(254,130,53,0.25);
+}
+.footer__shop-strip-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  position: relative;
+  z-index: 1;
+}
+.footer__shop-strip-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--orange);
+  opacity: 0.75;
+  transition: opacity 0.3s ease;
+}
+.footer__shop-strip:hover .footer__shop-strip-eyebrow {
+  opacity: 1;
+}
+.footer__shop-strip-label {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: clamp(1.8rem, 3.8vw, 3.2rem);
+  font-weight: 300;
+  letter-spacing: -0.025em;
+  color: rgba(255,255,255,0.6);
+  transition: color 0.4s ease;
+  line-height: 1.1;
+}
+.footer__shop-strip:hover .footer__shop-strip-label {
+  color: rgba(255,255,255,0.92);
+}
+.footer__shop-strip-arrow {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.35);
+  transition: box-shadow 0.4s ease, color 0.4s ease, transform 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.footer__shop-strip:hover .footer__shop-strip-arrow {
+  box-shadow: 0 0 0 1px var(--orange), 0 0 24px rgba(254,130,53,0.2);
+  color: var(--orange);
+  transform: rotate(-45deg);
+}
+.footer__shop-strip-arrow svg {
+  width: 22px;
+  height: 22px;
+}
+
 /* ---- Footer info row ---- */
 .footer__info {
   display: flex;
@@ -1990,6 +2130,7 @@ a.contact__detail-value:hover {
   .footer__cta-inner {
     padding: 0 2.5rem;
   }
+  .footer__shop-strip { padding: 2rem 2.5rem; }
   .footer__info { padding: 4rem 2.5rem 3rem; }
   .footer__wordmark-wrap { padding: 0 1.5rem; }
   .footer__bottom { padding: 1.2rem 2.5rem; }
@@ -2010,6 +2151,18 @@ a.contact__detail-value:hover {
   .footer__cta-inner {
     align-items: center;
     text-align: center;
+  }
+  .footer__shop-strip {
+    padding: 1.6rem 1.5rem;
+    gap: 1rem;
+  }
+  .footer__shop-strip-arrow {
+    width: 44px;
+    height: 44px;
+  }
+  .footer__shop-strip-arrow svg {
+    width: 18px;
+    height: 18px;
   }
   .footer__info {
     flex-direction: column;

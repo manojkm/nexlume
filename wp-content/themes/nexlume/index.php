@@ -26,6 +26,8 @@
 
   $air_pages = glob($theme_dir . '/assets/NexLumeAir/*.svg');
   $air_count = $air_pages ? count($air_pages) : 16;
+
+  $shop_url = 'https://www.nexlume.co.in';
 ?>
 
 <!-- ====== PRELOADER ====== -->
@@ -42,6 +44,7 @@
     <li><a href="#divisions">Divisions</a></li>
     <li><a href="#catalog">Catalog</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="<?php echo $shop_url; ?>" class="nav__shop" target="_blank" rel="noopener">Shop Now</a></li>
     <li><a href="#contact" class="nav__cta">Contact Us</a></li>
   </ul>
   <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
@@ -126,6 +129,10 @@
           View Catalog
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </span>
+        <a href="<?php echo $shop_url; ?>" class="division-card__shop" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+          Shop Products
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+        </a>
       </div>
     </div>
 
@@ -145,6 +152,10 @@
           View Catalog
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </span>
+        <a href="<?php echo $shop_url; ?>" class="division-card__shop" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+          Shop Products
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+        </a>
       </div>
     </div>
   </div>
@@ -405,6 +416,17 @@
       <a href="#contact" class="footer__cta-link reveal reveal-delay-2">Get In Touch</a>
     </div>
   </div>
+
+  <!-- Shop strip -->
+  <a href="<?php echo $shop_url; ?>" class="footer__shop-strip" target="_blank" rel="noopener">
+    <div class="footer__shop-strip-inner">
+      <span class="footer__shop-strip-eyebrow">Ready to elevate your space?</span>
+      <span class="footer__shop-strip-label">Shop the Collection</span>
+    </div>
+    <span class="footer__shop-strip-arrow" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </span>
+  </a>
 
   <!-- Footer info row -->
   <div class="footer__info">
