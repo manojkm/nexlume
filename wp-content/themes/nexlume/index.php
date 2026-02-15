@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.css">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <link rel="icon" type="image/svg+xml" href="<?php echo get_template_directory_uri(); ?>/assets/logos/NexLume Logo Leaf_white.svg">
   <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/assets/logos/NexLume Logo Leaf.png">
   <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/assets/logos/NexLume Logo Leaf.png">
@@ -29,8 +30,9 @@
 
 <!-- ====== PRELOADER ====== -->
 <div class="preloader" id="preloader">
-  <img src="<?php echo $theme_uri; ?>/assets/logos/Nexlume Logo white.png" alt="NexLume" style="height:40px; width:auto;">
-  <div class="preloader__bar"><div class="preloader__bar-fill"></div></div>
+  <img src="<?php echo $theme_uri; ?>/assets/logos/NexLume Logo Leaf_white.svg" alt="" aria-hidden="true" class="preloader__leaf" id="preloader-leaf">
+  <img src="<?php echo $theme_uri; ?>/assets/logos/nexlume_logo_no_leaf.png" alt="NexLume" class="preloader__brand" id="preloader-brand">
+  <div class="preloader__bar" id="preloader-bar"><div class="preloader__bar-fill"></div></div>
 </div>
 
 <!-- ====== NAVIGATION ====== -->
@@ -229,7 +231,7 @@
         <div class="catalog__thumbtrack" id="thumbs-nexlume">
           <?php for ($i = 1; $i <= $nexlume_count; $i++): ?>
           <div class="catalog__thumb<?php echo $i === 1 ? ' active' : ''; ?>" onclick="goToPage('nexlume', <?php echo $i; ?>)">
-            <img src="<?php echo $theme_uri; ?>/assets/NexLume/<?php echo $i; ?>.svg" alt="Page <?php echo $i; ?>" loading="lazy">
+            <img data-src="<?php echo $theme_uri; ?>/assets/NexLume/<?php echo $i; ?>.svg" alt="Page <?php echo $i; ?>" class="lazy-thumb">
             <span class="catalog__thumb-num"><?php echo $i; ?></span>
           </div>
           <?php endfor; ?>
@@ -288,7 +290,7 @@
         <div class="catalog__thumbtrack" id="thumbs-air">
           <?php for ($i = 1; $i <= $air_count; $i++): ?>
           <div class="catalog__thumb<?php echo $i === 1 ? ' active' : ''; ?>" onclick="goToPage('air', <?php echo $i; ?>)">
-            <img src="<?php echo $theme_uri; ?>/assets/NexLumeAir/<?php echo $i; ?>.svg" alt="Page <?php echo $i; ?>" loading="lazy">
+            <img data-src="<?php echo $theme_uri; ?>/assets/NexLumeAir/<?php echo $i; ?>.svg" alt="Page <?php echo $i; ?>" class="lazy-thumb">
             <span class="catalog__thumb-num"><?php echo $i; ?></span>
           </div>
           <?php endfor; ?>
@@ -353,7 +355,7 @@
           </span>
           <div>
             <span class="contact__detail-label">Email Us</span>
-            <a href="mailto:hello@nexlume.com" class="contact__detail-value">hello@nexlume.com</a>
+            <a href="mailto:hello@nexlume.co.in" class="contact__detail-value">hello@nexlume.co.in</a>
           </div>
         </div>
         <div class="contact__detail-item">
@@ -414,8 +416,8 @@
       <h3 class="footer__info-heading">Bring your <strong>vision</strong> to life<br>with light and air.</h3>
       <div class="footer__info-contact">
         <span class="footer__info-contact-label">Reach us at</span>
-        <a href="mailto:hello@nexlume.com" class="footer__info-contact-link">
-          hello@nexlume.com
+        <a href="mailto:hello@nexlume.co.in" class="footer__info-contact-link">
+          hello@nexlume.co.in
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
         </a>
       </div>
@@ -452,7 +454,91 @@
   </div>
 </footer>
 
+<!-- Back to top -->
+<button id="back-to-top" aria-label="Back to top">
+  <svg class="btt__ring" viewBox="0 0 44 44" aria-hidden="true">
+    <circle class="btt__track"    cx="22" cy="22" r="18"/>
+    <circle class="btt__progress" cx="22" cy="22" r="18"/>
+  </svg>
+  <svg class="btt__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 19V5M5 12l7-7 7 7"/>
+  </svg>
+</button>
+
 <?php wp_footer(); ?>
+
+<!-- Preloader GSAP animation -->
+<script>
+(function() {
+  var leaf   = document.getElementById('preloader-leaf');
+  var brand  = document.getElementById('preloader-brand');
+  var bar    = document.getElementById('preloader-bar');
+  var fill   = bar ? bar.querySelector('.preloader__bar-fill') : null;
+
+  // Filter states — consistent function order so GSAP can interpolate cleanly
+  var fOrange = 'sepia(1) saturate(8) hue-rotate(-15deg) brightness(0.95) ' +
+                'drop-shadow(0 0 18px rgba(254,130,53,1)) ' +
+                'drop-shadow(0 0 50px rgba(254,130,53,0.7)) ' +
+                'drop-shadow(0 0 90px rgba(254,130,53,0.35))';
+
+  var fWhite  = 'sepia(0) saturate(1) hue-rotate(0deg) brightness(1) ' +
+                'drop-shadow(0 0 0px rgba(254,130,53,0)) ' +
+                'drop-shadow(0 0 0px rgba(254,130,53,0)) ' +
+                'drop-shadow(0 0 0px rgba(254,130,53,0))';
+
+  var fFloat  = 'sepia(0.12) saturate(2) hue-rotate(-10deg) brightness(1) ' +
+                'drop-shadow(0 0 16px rgba(254,130,53,0.55)) ' +
+                'drop-shadow(0 0 0px rgba(254,130,53,0)) ' +
+                'drop-shadow(0 0 0px rgba(254,130,53,0))';
+
+  // Entrance timeline
+  var tl = gsap.timeline();
+
+  tl.from(leaf, {
+      opacity: 0,
+      scale: 0.25,
+      rotation: -40,
+      filter: fOrange,
+      duration: 1.1,
+      ease: 'elastic.out(1, 0.5)',
+      transformOrigin: '50% 50%'
+    })
+    // Hold orange for a beat
+    .to(leaf, { filter: fOrange, duration: 0.35 })
+    // Cool from orange → white
+    .to(leaf, { filter: fWhite, duration: 1.2, ease: 'power2.out' })
+    .from(brand, {
+      opacity: 0,
+      y: 14,
+      duration: 0.5,
+      ease: 'power3.out'
+    }, '-=0.8')
+    .from(bar, {
+      opacity: 0,
+      scaleX: 0,
+      duration: 0.4,
+      ease: 'power2.out',
+      transformOrigin: 'left center'
+    }, '-=0.15')
+    .to(fill, {
+      width: '100%',
+      duration: 1.0,
+      ease: 'power1.inOut'
+    }, '-=0.1')
+    .add(function() {
+      // Float loop — warm glow pulses at top of each cycle
+      gsap.to(leaf, {
+        y: -10,
+        rotation: 6,
+        filter: fFloat,
+        duration: 2.2,
+        ease: 'sine.inOut',
+        yoyo: true,
+        repeat: -1
+      });
+    });
+})();
+</script>
 
 <!-- PhotoSwipe v5 core (UMD) -->
 <script src="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/umd/photoswipe.umd.min.js"></script>
@@ -472,14 +558,39 @@
   // ======= PRELOADER =======
   window.addEventListener('load', function() {
     setTimeout(function() {
-      document.getElementById('preloader').classList.add('loaded');
-    }, 1000);
+      gsap.to('#preloader', {
+        opacity: 0,
+        duration: 0.65,
+        ease: 'power2.inOut',
+        onComplete: function() {
+          var el = document.getElementById('preloader');
+          el.style.visibility  = 'hidden';
+          el.style.pointerEvents = 'none';
+        }
+      });
+    }, 800);
   });
 
-  // ======= NAVBAR =======
-  var nav = document.getElementById('nav');
+  // ======= NAVBAR + BACK TO TOP =======
+  var nav        = document.getElementById('nav');
+  var bttBtn     = document.getElementById('back-to-top');
+  var bttCircle  = document.querySelector('.btt__progress');
+  var bttLen = 2 * Math.PI * 18; // r=18 → ~113.1
+  bttCircle.style.strokeDasharray  = bttLen;
+  bttCircle.style.strokeDashoffset = bttLen;
+
   window.addEventListener('scroll', function() {
-    nav.classList.toggle('scrolled', window.pageYOffset > 50);
+    var scrollTop  = window.pageYOffset || document.documentElement.scrollTop;
+    var docHeight  = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var progress   = docHeight > 0 ? scrollTop / docHeight : 0;
+
+    nav.classList.toggle('scrolled', scrollTop > 50);
+    bttBtn.classList.toggle('visible', scrollTop > 300);
+    bttCircle.style.strokeDashoffset = bttLen * (1 - progress);
+  });
+
+  bttBtn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
   var toggle = document.getElementById('navToggle');
@@ -534,9 +645,33 @@
     });
   });
 
+  // ======= LAZY THUMB LOADING =======
+  var thumbsLoaded = { nexlume: false, air: false };
+
+  function loadThumbs(name) {
+    if (thumbsLoaded[name]) return;
+    thumbsLoaded[name] = true;
+    document.querySelectorAll('#thumbs-' + name + ' .lazy-thumb').forEach(function(img) {
+      img.src = img.getAttribute('data-src');
+    });
+  }
+
+  // Load NexLume thumbs when catalog section enters viewport
+  var catalogObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        loadThumbs('nexlume');
+        catalogObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  var catalogSection = document.getElementById('catalog');
+  if (catalogSection) catalogObs.observe(catalogSection);
+
   // ======= CATALOG SWITCHING =======
   window.switchCatalog = function(name) {
     activeCatalog = name;
+    loadThumbs(name);
 
     document.querySelectorAll('.catalog__tab').forEach(function(tab) {
       tab.classList.toggle('active', tab.getAttribute('data-catalog') === name);
@@ -567,6 +702,9 @@
 
     var img = document.getElementById('page-' + name);
     if (img) {
+      img.classList.add('loading');
+      img.onload  = function() { img.classList.remove('loading'); };
+      img.onerror = function() { img.classList.remove('loading'); };
       img.src = themeUri + c.path + page + '.svg';
       img.alt = (name === 'nexlume' ? 'NexLume' : 'NexLume Air') + ' Catalog Page ' + page;
     }
