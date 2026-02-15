@@ -7,6 +7,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.css">
+  <link rel="icon" type="image/svg+xml" href="<?php echo get_template_directory_uri(); ?>/assets/logos/NexLume Logo Leaf_white.svg">
+  <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/assets/logos/NexLume Logo Leaf.png">
+  <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/assets/logos/NexLume Logo Leaf.png">
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -156,10 +159,20 @@
   <!-- Tabs -->
   <div class="catalog__tabs reveal">
     <button class="catalog__tab active" data-catalog="nexlume" onclick="switchCatalog('nexlume')">
-      NexLume Lighting
+      <span class="catalog__tab-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18h6M10 22h4M12 2a7 7 0 0 1 5 12c-1 1-1.5 2-1.5 3H8.5C8.5 16 8 15 7 14A7 7 0 0 1 12 2z"/>
+        </svg>
+      </span>
+      <span class="catalog__tab-label">NexLume Lighting</span>
     </button>
     <button class="catalog__tab" data-catalog="air" onclick="switchCatalog('air')">
-      NexLume Air
+      <span class="catalog__tab-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/>
+        </svg>
+      </span>
+      <span class="catalog__tab-label">NexLume Air</span>
     </button>
   </div>
 
@@ -386,8 +399,8 @@
     <img src="<?php echo $theme_uri; ?>/assets/logos/NexLume Logo Leaf_white.svg" alt="" aria-hidden="true" class="footer__cta-leaf footer__cta-leaf--echo">
 
     <div class="footer__cta-inner">
-      <h3 class="footer__cta-title">Where Shadows Complete the <span class="highlight">Story.</span></h3>
-      <a href="#contact" class="footer__cta-link">Get In Touch</a>
+      <h3 class="footer__cta-title reveal">Where Shadows Complete the <span class="highlight">Story.</span></h3>
+      <a href="#contact" class="footer__cta-link reveal reveal-delay-2">Get In Touch</a>
     </div>
   </div>
 
