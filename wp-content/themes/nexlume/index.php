@@ -371,6 +371,15 @@
         </div>
         <div class="contact__detail-item">
           <span class="contact__detail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+          </span>
+          <div>
+            <span class="contact__detail-label">Call Us</span>
+            <a href="tel:+919061577666" class="contact__detail-value">+91 90615 77666</a>
+          </div>
+        </div>
+        <div class="contact__detail-item">
+          <span class="contact__detail-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </span>
           <div>
@@ -440,6 +449,13 @@
         <span class="footer__info-contact-label">Reach us at</span>
         <a href="mailto:hello@nexlume.co.in" class="footer__info-contact-link">
           hello@nexlume.co.in
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+      </div>
+      <div class="footer__info-contact" style="margin-top:1.2rem;">
+        <span class="footer__info-contact-label">Call us</span>
+        <a href="tel:+919061577666" class="footer__info-contact-link">
+          +91 90615 77666
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
         </a>
       </div>
