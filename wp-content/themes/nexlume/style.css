@@ -1868,6 +1868,9 @@ a.contact__detail-value:hover {
 
 /* ---- Footer shop strip ---- */
 .footer__shop-strip {
+  display: none;
+}
+.footer__shop-strip-hidden {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -2015,13 +2018,19 @@ a.contact__detail-value:hover {
 .footer__info-contact-link:hover svg {
   transform: translate(2px, -2px);
 }
+.footer__info-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2rem;
+  flex-shrink: 0;
+}
 .footer__info-nav {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 0.55rem;
   padding-top: 0.15rem;
-  flex-shrink: 0;
 }
 .footer__info-nav a {
   font-size: 0.82rem;
@@ -2032,6 +2041,55 @@ a.contact__detail-value:hover {
 }
 .footer__info-nav a:hover {
   color: var(--text-primary);
+}
+
+/* ---- Footer mini shop ---- */
+.footer__mini-shop {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.45rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--border);
+  width: 100%;
+}
+.footer__mini-shop-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+.footer__mini-shop-label svg {
+  width: 13px;
+  height: 13px;
+}
+.footer__mini-shop-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--orange);
+  text-decoration: none;
+  transition: color 0.25s ease, gap 0.25s ease;
+}
+.footer__mini-shop-link svg {
+  width: 14px;
+  height: 14px;
+  opacity: 0.7;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.footer__mini-shop-link:hover {
+  color: var(--orange-light);
+  gap: 0.65rem;
+}
+.footer__mini-shop-link:hover svg {
+  transform: translate(2px, -2px);
+  opacity: 1;
 }
 
 /* ---- Oversized brand wordmark ---- */
@@ -2169,11 +2227,19 @@ a.contact__detail-value:hover {
     gap: 2.5rem;
     padding: 3rem 1.5rem 2.5rem;
   }
+  .footer__info-right {
+    align-items: flex-start;
+    width: 100%;
+  }
   .footer__info-nav {
     align-items: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 0.8rem 1.8rem;
+  }
+  .footer__mini-shop {
+    align-items: flex-start;
+    padding-top: 1.2rem;
   }
   .footer__wordmark-wrap { padding: 0 1rem; }
   .footer__bottom {

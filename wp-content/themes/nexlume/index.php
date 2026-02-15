@@ -445,12 +445,24 @@
       </div>
     </div>
 
-    <nav class="footer__info-nav" aria-label="Footer navigation">
-      <a href="#divisions">Divisions</a>
-      <a href="#catalog">Catalog</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="footer__info-right">
+      <nav class="footer__info-nav" aria-label="Footer navigation">
+        <a href="#divisions">Divisions</a>
+        <a href="#catalog">Catalog</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="footer__mini-shop">
+        <span class="footer__mini-shop-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+          Shop Online
+        </span>
+        <a href="<?php echo $shop_url; ?>" class="footer__mini-shop-link" target="_blank" rel="noopener">
+          nexlume.co.in
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+      </div>
+    </div>
   </div>
 
   <!-- Oversized brand wordmark -->
