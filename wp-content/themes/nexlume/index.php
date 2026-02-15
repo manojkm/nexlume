@@ -629,10 +629,29 @@
 
   var toggle = document.getElementById('navToggle');
   var links  = document.getElementById('navLinks');
+  var navEl  = document.getElementById('nav');
+  function openMenu() {
+    // Move links to body so it's outside nav's backdrop-filter stacking context
+    document.body.appendChild(links);
+    links.classList.add('open');
+    navEl.classList.add('menu-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    links.classList.remove('open');
+    navEl.classList.remove('menu-open');
+    // Move links back inside nav before the toggle button
+    navEl.insertBefore(links, toggle);
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
   if (toggle) {
-    toggle.addEventListener('click', function() { links.classList.toggle('open'); });
+    toggle.addEventListener('click', function() {
+      links.classList.contains('open') ? closeMenu() : openMenu();
+    });
     links.querySelectorAll('a').forEach(function(a) {
-      a.addEventListener('click', function() { links.classList.remove('open'); });
+      a.addEventListener('click', function() { closeMenu(); });
     });
   }
 
