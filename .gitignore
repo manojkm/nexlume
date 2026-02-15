@@ -80,10 +80,9 @@ wp-content/object-cache.php
 # Claude AI session data
 .claude/
 
-# VS Code (workspace file IS tracked, but not local user settings)
-.vscode/settings.json
-.vscode/launch.json
-.vscode/tasks.json
+# VS Code
+*.code-workspace
+.vscode/
 
 # JetBrains (PHPStorm etc.)
 .idea/

@@ -323,77 +323,118 @@
 
 <!-- ====== NEWSLETTER / CONTACT ====== -->
 <section class="section section--dark" id="contact" style="position:relative; overflow:hidden;">
-  <div class="leaf-decor leaf-decor--newsletter"><img src="<?php echo $theme_uri; ?>/assets/logos/NexLume Logo Leaf_white.svg" alt="" aria-hidden="true"></div>
-  <div class="newsletter">
-    <div class="newsletter__inner">
+  <div class="leaf-decor leaf-decor--contact"><img src="<?php echo $theme_uri; ?>/assets/logos/NexLume Logo Leaf_white.svg" alt="" aria-hidden="true"></div>
+
+  <div class="contact-wrap">
+
+    <!-- Left: Info panel -->
+    <div class="contact__info">
       <span class="section__eyebrow reveal">Get In Touch</span>
-      <h2 class="newsletter__title reveal reveal-delay-1">Stay <span class="highlight">Connected</span></h2>
-      <p class="newsletter__desc reveal reveal-delay-2">Subscribe to receive new product launches, trade program updates, and exclusive insights into our latest innovations.</p>
-      <form class="newsletter__form reveal reveal-delay-3" onsubmit="return false;">
-        <input type="email" class="newsletter__input" placeholder="Your email address" required>
-        <button type="submit" class="newsletter__submit">Subscribe</button>
-      </form>
-      <p class="newsletter__note reveal reveal-delay-4">No spam. Unsubscribe anytime.</p>
+      <h2 class="contact__title reveal reveal-delay-1">Let's Shape<br>Your <span class="highlight">Light.</span></h2>
+      <p class="contact__desc reveal reveal-delay-2">Whether you're designing a residential space, a commercial interior, or exploring our trade programme — our team is here to help you every step of the way.</p>
+
+      <div class="contact__details reveal reveal-delay-3">
+        <div class="contact__detail-item">
+          <span class="contact__detail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </span>
+          <div>
+            <span class="contact__detail-label">Email Us</span>
+            <a href="mailto:hello@nexlume.com" class="contact__detail-value">hello@nexlume.com</a>
+          </div>
+        </div>
+        <div class="contact__detail-item">
+          <span class="contact__detail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </span>
+          <div>
+            <span class="contact__detail-label">Response Time</span>
+            <span class="contact__detail-value">Within 24 hours</span>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- Right: Contact Form 7 -->
+    <div class="contact__form-wrap reveal reveal-delay-2">
+      <div class="contact__form-card">
+        <h3 class="contact__form-heading">Send Us a Message</h3>
+        <?php if ( shortcode_exists('contact-form-7') ) :
+          echo do_shortcode('[contact-form-7 id="0113da6" title="Contact Nex Lume"]');
+        else : ?>
+          <p class="contact__cf7-notice">
+            <strong>Contact Form 7</strong> is not active.<br>
+            Go to <em>WP Admin → Plugins → Add New</em> to install it, then replace <code>REPLACE_WITH_FORM_ID</code> in <code>index.php</code> with your form's ID.
+          </p>
+        <?php endif; ?>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <!-- ====== FOOTER ====== -->
 <footer class="footer" style="position:relative; overflow:hidden;">
   <div class="leaf-decor leaf-decor--footer"><img src="<?php echo $theme_uri; ?>/assets/logos/NexLume Logo Leaf_white.svg" alt="" aria-hidden="true"></div>
-  <div class="footer__top">
-    <div class="footer__brand">
-      <img src="<?php echo $theme_uri; ?>/assets/logos/Nexlume Logo white.png" alt="NexLume" class="footer__logo-img">
-      <p class="footer__brand-desc">Architectural lighting and precision ventilation — where European design meets performance engineering.</p>
-      <div class="footer__social">
-        <a href="#" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
-        </a>
-        <a href="#" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M7 10v7M7 7v.01M11 10v7m0-4c0-2 1.5-3 3-3s3 1 3 3v4"/></svg>
-        </a>
-        <a href="#" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+
+  <!-- Pre-footer CTA band -->
+  <div class="footer__cta-band" style="background-image: url('<?php echo $theme_uri; ?>/assets/footer_wide.jpg');">
+    <div class="footer__cta-overlay"></div>
+
+    <!-- Leaf overlays on the figure -->
+    <img src="<?php echo $theme_uri; ?>/assets/logos/NexLume Logo Leaf_white.svg" alt="" aria-hidden="true" class="footer__cta-leaf footer__cta-leaf--primary">
+    <img src="<?php echo $theme_uri; ?>/assets/logos/NexLume Logo Leaf_white.svg" alt="" aria-hidden="true" class="footer__cta-leaf footer__cta-leaf--echo">
+
+    <div class="footer__cta-inner">
+      <h3 class="footer__cta-title">Where Shadows Complete the <span class="highlight">Story.</span></h3>
+      <a href="#contact" class="footer__cta-link">Get In Touch</a>
+    </div>
+  </div>
+
+  <!-- Footer info row -->
+  <div class="footer__info">
+    <div class="footer__info-left">
+      <span class="footer__info-label">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Contact Us
+      </span>
+      <h3 class="footer__info-heading">Bring your <strong>vision</strong> to life<br>with light and air.</h3>
+      <div class="footer__info-contact">
+        <span class="footer__info-contact-label">Reach us at</span>
+        <a href="mailto:hello@nexlume.com" class="footer__info-contact-link">
+          hello@nexlume.com
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
         </a>
       </div>
     </div>
 
-    <div class="footer__column">
-      <h4 class="footer__column-title">NexLume</h4>
-      <ul class="footer__links">
-        <li><a href="#">Architectural Lighting</a></li>
-        <li><a href="#">Decorative Lighting</a></li>
-        <li><a href="#">Smart Lighting</a></li>
-        <li><a href="#">Outdoor Lighting</a></li>
-      </ul>
-    </div>
-
-    <div class="footer__column">
-      <h4 class="footer__column-title">NexLume Air</h4>
-      <ul class="footer__links">
-        <li><a href="#">Exhaust Fans</a></li>
-        <li><a href="#">Inline Fans</a></li>
-        <li><a href="#">Glass Panel Fans</a></li>
-        <li><a href="#">Steel Panel Fans</a></li>
-      </ul>
-    </div>
-
-    <div class="footer__column">
-      <h4 class="footer__column-title">Company</h4>
-      <ul class="footer__links">
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Trade Program</a></li>
-        <li><a href="#">Careers</a></li>
-      </ul>
-    </div>
+    <nav class="footer__info-nav" aria-label="Footer navigation">
+      <a href="#divisions">Divisions</a>
+      <a href="#catalog">Catalog</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
 
+  <!-- Oversized brand wordmark -->
+  <div class="footer__wordmark-wrap">
+    <div class="footer__wordmark-glow"></div>
+    <span class="footer__wordmark" aria-hidden="true">NexLume</span>
+  </div>
+
+  <!-- Bottom bar -->
   <div class="footer__bottom">
     <p class="footer__copy">&copy; <?php echo date('Y'); ?> NexLume. All rights reserved.</p>
-    <div class="footer__legal">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Service</a>
+    <div class="footer__social">
+      <a href="#" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="#" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M7 10v7M7 7v.01M11 10v7m0-4c0-2 1.5-3 3-3s3 1 3 3v4"/></svg>
+      </a>
+      <a href="#" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
     </div>
   </div>
 </footer>
